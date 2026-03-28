@@ -1,4 +1,5 @@
 from dataset_loader import DualStreamDataset
+import torch
 
 dataset = DualStreamDataset("data/processed", split="train")
 
@@ -10,3 +11,6 @@ print("RGB shape:", rgb.shape)
 print("Edge shape:", edge.shape)
 print("LBP shape:", lbp.shape)
 print("Label:", label)
+
+x = torch.cat([rgb, edge, lbp], dim=0)
+print("Stacked shape:", x.shape)

@@ -2,15 +2,7 @@
 # Virtual Environment
 # ===============================
 venv/
-
-# ===============================
-# Dataset (DO NOT upload images)
-# ===============================
-data/raw/
-data/train/
-data/val/
-data/test/
-data/processed/
+env/
 
 # ===============================
 # Python Cache
@@ -18,22 +10,48 @@ data/processed/
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
 
 # ===============================
-# Model Weights & Outputs
+# Dataset (DO NOT upload images)
+# ===============================
+data/
+images/
+
+# (If you want to keep structure only, comment above and use below)
+# data/raw/
+# data/train/
+# data/val/
+# data/test/
+# data/processed/
+
+# ===============================
+# Model Weights (VERY IMPORTANT)
 # ===============================
 *.pt
 *.pth
-outputs/
-runs/
 
 # ===============================
-# VS Code Settings
+# Training Outputs
+# ===============================
+runs/
+outputs/
+*.png
+
+# ===============================
+# IDE / Editor
 # ===============================
 .vscode/
+.idea/
 
 # ===============================
 # System Files
 # ===============================
 .DS_Store
 Thumbs.db
+
+# ===============================
+# Logs / Temp
+# ===============================
+*.log
+temp/

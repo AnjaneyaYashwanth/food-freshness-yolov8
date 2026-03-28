@@ -2,7 +2,6 @@ import os
 import torch
 from torch.utils.data import Dataset
 import cv2
-import numpy as np
 
 class DualStreamDataset(Dataset):
     def __init__(self, base_dir, split="train"):
@@ -35,15 +34,32 @@ class DualStreamDataset(Dataset):
         edge = cv2.imread(edge_path, cv2.IMREAD_GRAYSCALE)
         lbp = cv2.imread(lbp_path, cv2.IMREAD_GRAYSCALE)
 
+        # ----------------------------
+        # FIX SHAPE ISSUES
+        # ----------------------------
+        if len(edge.shape) == 3:
+            edge = edge[:, :, 0]
+
+        if len(lbp.shape) == 3:
+            lbp = lbp[:, :, 0]
+
+        # ----------------------------
         # Normalize
+        # ----------------------------
         rgb = rgb / 255.0
         edge = edge / 255.0
         lbp = lbp / 255.0
 
+        # ----------------------------
         # Convert to tensor
-        rgb = torch.tensor(rgb, dtype=torch.float32).permute(2, 0, 1)
-        edge = torch.tensor(edge, dtype=torch.float32).unsqueeze(0)
-        lbp = torch.tensor(lbp, dtype=torch.float32).unsqueeze(0)
+        # ----------------------------
+        rgb = torch.tensor(rgb, dtype=torch.float32).permute(2, 0, 1)   # [3, H, W]
+        edge = torch.tensor(edge, dtype=torch.float32).unsqueeze(0)     # [1, H, W]
+        lbp = torch.tensor(lbp, dtype=torch.float32).unsqueeze(0)       # [1, H, W]
+
+        # ----------------------------
+        # STACK → 5 CHANNELS
+        # ----------------------------
 
         label = torch.tensor(label, dtype=torch.long)
 

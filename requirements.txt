@@ -4,3 +4,6 @@ scikit-image
 matplotlib
 torch
 torchvision
+ultralytics
+scikit-learn 
+seaborn
