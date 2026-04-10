@@ -107,3 +107,7 @@ A Streamlit-based web interface is developed for real-time usage.
 
 ```bash
 streamlit run app.py
+
+## Updates
+- Fixed minor documentation issues
+- No changes made to code functionality
