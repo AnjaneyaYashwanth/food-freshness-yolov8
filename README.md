@@ -1,4 +1,4 @@
-# 🍌 Food Freshness Detection using Deep Learning
+# 🍌 Fruit Freshness Detection using Deep Learning
 
 ## 📌 Overview
 This project presents an intelligent system for detecting fruit freshness using deep learning techniques. The system classifies fruits into **Fresh**, **Ripe**, and **Overripe** categories by analyzing visual features such as color, texture, and structure. Additionally, it provides a **freshness score (0–10)** for better interpretation.
